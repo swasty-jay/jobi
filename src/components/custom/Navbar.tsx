@@ -104,7 +104,6 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import clsx from "clsx";
-import { href } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
