@@ -1,90 +1,7 @@
-// import { Button } from "@/components/ui/button";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { ArrowRight } from "lucide-react";
-
-// export default function Home() {
-//   return (
-//     <div className="min-h-screen bg-background text-foreground">
-//       <header className="py-6 px-4 md:px-10 flex justify-between items-center border-b">
-//         <h1 className="text-xl font-bold">Jobi</h1>
-//         <nav className="space-x-4 hidden md:block">
-//           <a href="#jobs" className="hover:underline">
-//             Jobs
-//           </a>
-//           <a href="#courses" className="hover:underline">
-//             Training
-//           </a>
-//           <a href="#volunteer" className="hover:underline">
-//             Volunteer
-//           </a>
-//         </nav>
-//         <Button className="md:ml-4">
-//           Get Started{" "}
-//           <span className="text-2xl">
-//             <ArrowRight />
-//           </span>
-//         </Button>
-//       </header>
-
-//       <section className="py-20 px-6 md:px-10 text-center">
-//         <h2 className="text-3xl md:text-5xl font-bold mb-4">
-//           Empowering Skills. Creating Jobs.
-//         </h2>
-//         <p className="text-gray-900 text-lg max-w-xl mx-auto">
-//           Learn a trade, find a job, or give back by teaching. Jobi connects you
-//           to opportunities.
-//         </p>
-//         <div className="mt-6 flex justify-center gap-4 flex-wrap">
-//           <Button variant="default">Explore Jobs</Button>
-//           <Button variant="outline">Become a Volunteer</Button>
-//         </div>
-//       </section>
-
-//       <section
-//         id="features"
-//         className="grid md:grid-cols-3 gap-6 px-6 md:px-10 pb-20"
-//       >
-//         <Card>
-//           <CardContent className="p-6">
-//             <h3 className="text-xl font-semibold mb-2">Volunteer to Teach</h3>
-//             <p className="text-stone-800">
-//               Share your skills and empower others. Volunteer to teach digital
-//               or vocational skills.
-//             </p>
-//           </CardContent>
-//         </Card>
-
-//         <Card>
-//           <CardContent className="p-6">
-//             <h3 className="text-xl font-semibold mb-2">Find Jobs</h3>
-//             <p className="text-stone-800">
-//               Browse or post local and freelance jobs for skilled youth and
-//               professionals.
-//             </p>
-//           </CardContent>
-//         </Card>
-
-//         <Card>
-//           <CardContent className="p-6">
-//             <h3 className="text-xl font-semibold mb-2">Get Trained</h3>
-//             <p className="text-stone-800">
-//               Access certified online vocational training in local languages —
-//               even offline.
-//             </p>
-//           </CardContent>
-//         </Card>
-//       </section>
-
-//       <footer className="text-center py-10 border-t text-sm text-black">
-//         &copy; {new Date().getFullYear()} Jobi. All rights reserved.
-//       </footer>
-//     </div>
-//   );
-// }
-
 import Features from "@/components/custom/Features";
 import Navbar from "@/components/custom/Navbar";
 import { Button } from "@/components/ui/button";
+import JobPostForm from "@/features/jobs/JobpostingForm";
 import { Sparkles } from "lucide-react";
 
 export default function Home() {
@@ -142,6 +59,7 @@ export default function Home() {
 
         {/* Features Section */}
         <Features />
+        <JobPostForm />
 
         {/* Footer */}
         <footer className="text-center py-12 border-t border-gray-200 backdrop-blur-xl bg-white/80">
