@@ -4,19 +4,24 @@ import JobListings from "./features/jobs/JobListing";
 import LoginPage from "./pages/LoginPage";
 import AdminDashboard from "./components/custom/AdminDashboard";
 import JobPostForm from "./features/jobs/JobpostingForm";
+import AppLayout from "./components/custom/AppLayout";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/joblisting" element={<JobListings />} />
-        <Route path="/admindashboard" element={<AdminDashboard />} />
-        <Route path="/jobpostform" element={<JobPostForm />} />
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/joblisting" element={<JobListings />} />
+          <Route path="/admindashboard" element={<AdminDashboard />} />
+          <Route
+            path="/jobpostform"
+            element={<JobPostForm userId="dummyUserId" />}
+          />
+        </Route>
 
         <Route path="/loginpage" element={<LoginPage />} />
       </Routes>
-      ;
     </div>
   );
 }

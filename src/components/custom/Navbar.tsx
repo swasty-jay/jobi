@@ -42,9 +42,9 @@ const Navbar = () => {
     <>
       <header
         className={clsx(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+          "fixed top-0 left-0 w-full z-50 transition-all duration-300 mb-4",
           scrolled
-            ? "backdrop-blur-xl bg-white/95 shadow-lg border-b border-gray-200/60"
+            ? "backdrop-blur-xl bg-white/10 shadow-lg border-b border-gray-200/60"
             : "bg-transparent"
         )}
       >
@@ -77,7 +77,7 @@ const Navbar = () => {
           <div className="hidden lg:block">
             <Link
               to={"/loginpage"}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2 mr-3"
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2 mr-3  "
             >
               Login
             </Link>
@@ -152,28 +152,30 @@ const Navbar = () => {
         <div className="p-6 space-y-6">
           {/* Navigation Links */}
           <nav className="space-y-4">
-            {navItems.map(({ label, href }) => (
-              <a
+            {navItems.map(({ label, to }) => (
+              <Link
                 key={label}
-                href={href}
+                to={to}
                 onClick={closeMenu}
                 className="flex items-center justify-between py-3 px-4 text-gray-800 font-medium hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-200 group"
               >
                 <span className="text-lg">{label}</span>
                 <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200" />
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Call to Action */}
           <div className="pt-6 border-t border-gray-200">
-            <Button
-              onClick={closeMenu}
-              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-purple-500/30 transition-all duration-300 group py-3"
-            >
-              Get Started
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            <Link to={"/JobPostForm"}>
+              <Button
+                onClick={closeMenu}
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-purple-500/30 transition-all duration-300 group py-3"
+              >
+                Post a job
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+            </Link>
           </div>
 
           {/* Additional Info */}
