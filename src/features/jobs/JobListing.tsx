@@ -1,4 +1,3 @@
-// components/jobs/JobListings.tsx
 import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase/Firebase";
@@ -20,8 +19,11 @@ const JobListings = () => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const q = query(collection(db, "jobs"), where("isApproved", "==", true));
-      const querySnapshot = await getDocs(q);
+      const approvalLogic = query(
+        collection(db, "jobs"),
+        where("isApproved", "==", true)
+      );
+      const querySnapshot = await getDocs(approvalLogic);
       const jobData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
