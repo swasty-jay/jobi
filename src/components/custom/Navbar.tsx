@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "../ui/button";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -26,11 +29,11 @@ const Navbar = () => {
   }, [menuOpen]);
 
   const navItems = [
-    { label: "Jobs", href: "#jobs" },
-    { label: "Training", href: "#courses" },
-    { label: "Volunteer", href: "#volunteer" },
-    { label: "Contact", href: "#contact" },
-    { label: " About us", href: "#about" },
+    { label: "Jobs", to: "/joblisting" },
+    { label: "Training", to: "/courses" },
+    { label: "Volunteer", to: "/volunteer" },
+    { label: "Contact", to: "/contact" },
+    { label: " About us", to: "/about" },
   ];
 
   const closeMenu = () => setMenuOpen(false);
@@ -58,24 +61,38 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10">
-            {navItems.map(({ label, href }) => (
-              <a
+            {navItems.map(({ label, to }) => (
+              <Link
                 key={label}
-                href={href}
+                to={to}
                 className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2"
               >
                 {label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-300 group-hover:w-full rounded-full" />
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Call to Action (Desktop) */}
           <div className="hidden lg:block">
-            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-purple-500/30 transition-all duration-300 group px-6 py-2.5">
-              Get Started
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
+            <Link
+              to={"/loginpage"}
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2 mr-3"
+            >
+              Login
+            </Link>
+
+            <Link
+              to={"/loginpage"}
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2 mr-3"
+            >
+              Log Out
+            </Link>
+            <Link to={"/jobpostform"}>
+              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-purple-500/30 transition-all duration-300 group px-6 py-2.5">
+                post a job
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}

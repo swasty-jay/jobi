@@ -362,7 +362,7 @@ const AdminDashboard = () => {
                     Job Details
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Company
+                    Company name
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Location
@@ -402,8 +402,9 @@ const AdminDashboard = () => {
                             {job.description}
                           </p>
                           {job.salary && (
-                            <div className="flex items-center mt-2 text-sm text-green-600">
-                              <span className="w-4 h-4 mr-3 ">GH₵</span> {""}
+                            <div className="flex items-center mt-2 text-sm text-green-600 ml-2">
+                              <span className="w-4 h-4 mr-3 ">GH₵ {""}</span>
+                              {""}
                               {job.salary}
                             </div>
                           )}

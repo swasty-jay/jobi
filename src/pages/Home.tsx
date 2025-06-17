@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import JobListings from "@/features/jobs/JobListing";
 import JobPostForm from "@/features/jobs/JobpostingForm";
 import { Sparkles } from "lucide-react";
-import LoginPage from "./LoginPage";
 
 export default function Home() {
   return (
@@ -61,14 +60,10 @@ export default function Home() {
         </section>
 
         {/* Features Section */}
-        <LoginPage />
+
         <Features />
-        <JobPostForm />
 
         <AdminDashboard />
-        <h1 className="text-xl text-center">exlpore more jobs here</h1>
-
-        <JobListings />
 
         {/* Footer */}
         <footer className="text-center py-12 border-t border-gray-200 backdrop-blur-xl bg-white/80">
