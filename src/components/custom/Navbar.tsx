@@ -8,8 +8,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // const navigate = useNavigate();
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
@@ -34,6 +32,7 @@ const Navbar = () => {
     { label: "Volunteer", to: "/volunteer" },
     { label: "Contact", to: "/contact" },
     { label: " About us", to: "/about" },
+    { label: "Admin Dashboard", to: "/admindashboard" },
   ];
 
   const closeMenu = () => setMenuOpen(false);
@@ -44,7 +43,7 @@ const Navbar = () => {
         className={clsx(
           "fixed top-0 left-0 w-full z-50 transition-all duration-300 mb-4",
           scrolled
-            ? "backdrop-blur-xl bg-white/10 shadow-lg border-b border-gray-200/60"
+            ? "backdrop-blur-lg bg-white/10 shadow-lg border-b border-gray-200/60"
             : "bg-transparent"
         )}
       >
@@ -75,22 +74,17 @@ const Navbar = () => {
 
           {/* Call to Action (Desktop) */}
           <div className="hidden lg:block">
-            <Link
+            {/* <Link
               to={"/loginpage"}
               className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2 mr-3  "
             >
               Login
-            </Link>
+            </Link> */}
 
-            <Link
-              to={"/loginpage"}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-300 relative group font-medium text-sm xl:text-base py-2 mr-3"
-            >
-              Log Out
-            </Link>
-            <Link to={"/jobpostform"}>
+            <Link to={"/loginpage"}>
               <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 shadow-lg hover:shadow-purple-500/30 transition-all duration-300 group px-6 py-2.5">
-                post a job
+                Log in
+                <ArrowRight className=" hover: translate-0.5 duration-100" />
               </Button>
             </Link>
           </div>

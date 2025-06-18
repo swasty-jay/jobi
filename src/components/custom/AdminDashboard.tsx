@@ -16,7 +16,6 @@ import {
   Calendar,
   MapPin,
   Building,
-  DollarSign,
   Search,
   Filter,
   Download,
@@ -28,20 +27,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "../ui/button";
-
-// Define a type for Job
-interface Job {
-  id: string;
-  title?: string;
-  description?: string;
-  salary?: string | number;
-  company?: string;
-  location?: string;
-  createdAt?: Timestamp;
-  isApproved?: boolean;
-  status?: string;
-  [key: string]: any; // for any additional fields
-}
+import type { Job } from "@/types";
 
 const AdminDashboard = () => {
   const { isAdmin } = useAdminAuth();
@@ -183,6 +169,17 @@ const AdminDashboard = () => {
     rejected: jobs.filter((j) => j.status === "rejected").length,
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600 font-medium">Loading dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center">
@@ -196,17 +193,6 @@ const AdminDashboard = () => {
           <p className="text-gray-600">
             You don't have permission to access this dashboard.
           </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium">Loading dashboard...</p>
         </div>
       </div>
     );
