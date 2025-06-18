@@ -154,7 +154,7 @@ const JobPostForm = ({ userId, onSuccess }: JobPostFormProps) => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 bg-[#f1f5f9]">
       <Card className="shadow-lg">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl sm:text-3xl font-bold text-center">

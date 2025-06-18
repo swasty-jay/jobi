@@ -8,7 +8,7 @@ import AppLayout from "./components/custom/AppLayout";
 
 function App() {
   return (
-    <div>
+    <div className="bg-[#f1f5f9]">
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
